@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 
 function Sidebar() {
-  const [payOpen, setPayOpen] = useState(true);
+  const [payOpen, setPayOpen] = useState(false);
   const [learningOpen, setLearningOpen] = useState(false);
 
   return (
@@ -30,7 +30,9 @@ function Sidebar() {
           </div>
           {learningOpen && (
             <div className="sidebar-subtabs">
-              {/* Add learning subtabs here if needed */}
+              <NavLink to="/learning/courses" className={({isActive}) => isActive ? 'active' : ''}>Courses</NavLink>
+              <NavLink to="/learning/tests" className={({isActive}) => isActive ? 'active' : ''}>Tests</NavLink>
+              <NavLink to="/learning/certifications" className={({isActive}) => isActive ? 'active' : ''}>Certifications</NavLink>
             </div>
           )}
         </div>
